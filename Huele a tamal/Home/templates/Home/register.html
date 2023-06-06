@@ -1,0 +1,14 @@
+{% extends 'Home/base.html' %}
+
+{% block content %}
+    
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="btn btn-info">
+            <button type="submit">check in</button>
+        </div>
+    </form>
+
+
+{% endblock  %}
