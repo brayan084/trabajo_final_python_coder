@@ -12,7 +12,18 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 # Para las variables LOGIN
 from django.urls import reverse_lazy
 
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+from pathlib import Path
+BASE_DIR = Path(__file__).resolve().parent.parent
 
+# ********************************************************************
+# sys.path es una lista de rutas donde Python busca módulos importados
+# Servirá para poder importar las aplicaciones de la carpeta apps
+import sys
+
+APLICACIONES = BASE_DIR / "apps"
+sys.path.append(str(APLICACIONES))
+# ********************************************************************
 
 from pathlib import Path
 
@@ -45,6 +56,7 @@ INSTALLED_APPS = [
 
 INSTALLED_APPS += [
     "Home",
+    "Productos",
 ]
 
 MIDDLEWARE = [
