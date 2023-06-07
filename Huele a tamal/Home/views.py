@@ -7,6 +7,7 @@ from . import forms
 def index(request: HttpResponse) -> HttpResponse:
     return render(request, 'Home/index.html')    
 
+
 def register(request: HttpResponse) -> HttpResponse:
     if request.method == "POST":
         form = forms.CustomUserCreationForm(request.POST)

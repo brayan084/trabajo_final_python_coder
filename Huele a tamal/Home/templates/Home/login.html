@@ -3,14 +3,19 @@
 
 {% block content %}
     
+    <div class="container">
+        
+        <form method="post">
+            
+            {% csrf_token %}
+            {{ form.as_p }}
+    
+            <div class="d-grid gap-3 ">
+                <button type="submit" class="btn btn-primary">INICIAR SESION</button>
+            </div>
+        </form>
 
-    <form method="post">
-        
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">iniciar sesion</button>
-        
-    </form>
+    </div>
 
 {% endblock  %}
 

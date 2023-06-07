@@ -2,13 +2,18 @@
 
 {% block content %}
     
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <div class="btn btn-info">
-            <button type="submit">check in</button>
-        </div>
-    </form>
+
+    <div class="container">
+        
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="d-grid gap-3">
+                <button class="btn btn-info" type="submit">check in</button>
+            </div>
+        </form>
+
+    </div>
 
 
 {% endblock  %}
