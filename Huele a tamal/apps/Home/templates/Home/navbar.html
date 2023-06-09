@@ -1,35 +1,24 @@
 {% load static %}
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-black">
     <div class="container px-4 px-lg-5">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
                 class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                <li class="nav-item "><a class="nav-link " aria-current="page" href="{% url 'Home:index' %}">Inicio</a>
+                <li class="nav-item "><a class="nav-link {% if request.path == "/" %}active{% endif %} " aria-current="page" href="{% url 'Home:index' %}">Inicio</a>
                 </li>
 
                 {% if request.user.is_authenticated %}
 
 
-                    <li><a class="nav-link" href="{% url 'Productos:index' %}">ADMINISTRACION</a></li>
+                    <li><a class="nav-link {% if request.path == "/Productos/" or request.path == "/Productos/list/" or request.path == "/Productos/create/" or request.path == "/Productos/update/4" or request.path == "/Productos/delete/4" or request.path == "/Productos/detail/4" %} active {% endif %}" href="{% url 'Productos:index' %}">Administracion</a></li>
 
-                    <!-- <li><a class="nav-link" href="!#">ventas</a></li> -->
+                    <li><a class="nav-link {% if request.path == "/#!" %}active{% endif %}" href="#!">ventas</a></li>
                 {% else %}
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">Shop</a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#!">All Products</a></li>
-                            <li>
-                                <hr class="dropdown-divider" />
-                            </li>
-                            <li><a class="dropdown-item" href="#!">Popular Items</a></li>
-                            <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
-                        </ul>
-                    </li>
-                    <li><a class="nav-link" href="#!">About me</a></li>
+
+                    <li><a class="nav-link {% if request.path == "/" %}active{% endif %}" href="#!">About me</a></li>
                 {% endif %}
 
             </ul>
@@ -37,11 +26,11 @@
 
             <ul class="navbar-nav">
                 {% if request.user.is_authenticated %}
-                <li class="nav-item"><a class="nav-link active">{{ user.username }}</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'Home:logout' %}">logout</a></li>
+                    <li class="nav-item"><a class="nav-link active">{{ user.username }}</a></li>
+                    <li class="nav-item"><a class="nav-link {% if request.path == "/register/" %}active{% endif %}" " href="{% url 'Home:register' %}">Register</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'Home:logout' %}">logout</a></li>
                 {% else %}
-                <li class="nav-item"><a class="nav-link" href="{% url 'Home:login' %}">Sign in</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'Home:register' %}">Sign up</a></li>
+                    <li class="nav-item"><a class="nav-link " href="{% url 'Home:login' %}">Login</a></li>
                 {% endif %}
             </ul>
 

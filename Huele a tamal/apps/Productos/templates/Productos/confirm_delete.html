@@ -12,6 +12,9 @@
                 <button type="submit" class="btn btn-danger">Confirmar</button>
             </div>
         </form>
+
+        {% url 'Productos:producto_list' as url %}
+        {% include 'Home/back.html' with link=url %}
         
     </div>
     

@@ -13,10 +13,9 @@
                 </div>
             </form>
         </div>
-        <div class="container">
-            <a class="btn btn-primary" href="{% url 'Productos:index' %}">Volver atras</a>
-        </div>
-        
+
+        {% url 'Productos:producto_list' as url %}
+        {% include 'Home/back.html' with link=url %}
 
     </body>
     

@@ -16,7 +16,10 @@
             </ul>
             
         </div>
+        
+        {% url 'Productos:producto_list' as url %}
+        {% include 'Home/back.html' with link=url %}
+        
     </div>
-    {% url 'producto:index' as url %}
-
+    
 {% endblock  %}
