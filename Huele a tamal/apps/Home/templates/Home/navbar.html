@@ -24,8 +24,11 @@
             </ul>
 
 
-            <ul class="navbar-nav">
+            <ul class="navbar-nav d-flex">
                 {% if request.user.is_authenticated %}
+                    {% if user.vendedor.avatar.url %}
+                        <li class="nav-item"><img src="{{user.vendedor.avatar.url}}" alt="" style="height: 50px;" ></li>
+                    {% endif %}
                     <li class="nav-item"><a class="nav-link active">{{ user.username }}</a></li>
                     <li class="nav-item"><a class="nav-link {% if request.path == "/register/" %}active{% endif %}" " href="{% url 'Home:register' %}">Register</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'Home:logout' %}">logout</a></li>
