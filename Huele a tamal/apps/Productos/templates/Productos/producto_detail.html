@@ -1,0 +1,22 @@
+{% extends 'Home/base.html' %}
+
+{% block content %}
+
+    <div class="container text-center">
+
+        <h1 class="display-4 mb-4 mt-4">Producto <b>{{ object.nombre }}</b></h1>
+        
+        <div class="mt-5">
+
+            <ul>
+                <li>descripcion: <b>{{ object.descripcion }}</b> </li>
+                <li>Precio: <b>{{ object.precio }} pesos</b> </li>
+                <li>fecha: <b>{{ object.fecha_actualizacion }}</b> </li>
+                
+            </ul>
+            
+        </div>
+    </div>
+    {% url 'producto:index' as url %}
+
+{% endblock  %}

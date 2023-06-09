@@ -1,0 +1,33 @@
+{% extends 'Home/base.html' %}
+
+{% block content %}
+
+    <div class="container text-center d-grid gap-2">
+        <a href="{% url 'Productos:producto_create' %}" class="btn btn-primary">Añadir Producto</a>
+    </div>
+
+
+    <div class="text-center mt-5">
+        <h2>Lista de productos</h2>
+    </div>
+
+    {% for producto in productos %}
+        <div class="card text-center mt-5">
+            <ul>
+                <li>Producto: <b>{{ producto.nombre }}</b></li>
+                <li>Precio: <b>{{ producto.precio }}</b></li>
+                <td>
+                    <a href="{% url 'Productos:producto_delete' producto.id %}" class="btn btn-danger">Eliminar</a>
+                </td>
+                <td>
+                    <a href="{% url 'Productos:producto_update' producto.id %}" class="btn btn-info">Actualizar</a>
+                </td>
+                <td>
+                    <a href="{% url 'Productos:producto_detail' producto.id %}" class="btn btn-info">Detalles</a>
+                </td>
+            </ul>
+        </div>
+    {% endfor %}
+
+    
+{% endblock content %}

@@ -1,5 +1,12 @@
 {% extends 'Home/base.html' %}
 
 {% block content %}
-    <h1>Productos</h1>
+    <div class="container">
+        <h1 class="text-center">index</h1>
+        
+    </div>
+
+    <div class="container text-center mt-5 d-grid">
+        <a href="{% url 'Productos:producto_list' %}" class="btn btn-primary">Todos Los Productos</a>
+    </div>
 {% endblock  %}

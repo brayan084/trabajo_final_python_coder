@@ -1,0 +1,18 @@
+{% extends 'Home/base.html' %}
+
+{% block content %}
+    <div class="container">
+
+        <h1>Eliminación de Productos</h1>
+        
+        <h2 class="mb-5 mt-5">¿Confirmas eliminar "{{ object.nombre }}"?</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div >
+                <button type="submit" class="btn btn-danger">Confirmar</button>
+            </div>
+        </form>
+        
+    </div>
+    
+{% endblock content %}

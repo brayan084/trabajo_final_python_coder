@@ -1,9 +1,15 @@
 {% extends 'Home/base.html' %}
 
 {% block content %}
-    <body class="text-center">
+    <body class="container text-center">
         <div class="fs-3 fst-italic">
-            <p>Has salido de la sesión...</p>
+            <h1>Has salido de la sesión...</h1>
+            <h3>Vuelve pronto {{user.username}}</h3>
+
+        </div>
+        
+        <div class="fs-3 fst-italic d-grid">
+            <a href="{% url 'Home:index' %}" class="btn btn-primary">Ir a inicio</a>
         </div>
     
 
