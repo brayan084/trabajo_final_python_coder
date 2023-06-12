@@ -5,11 +5,11 @@
         <h1 class="text-center">Administracion</h1>
     </div>
 
-    <div class="container text-center mt-5 d-grid">
+    <div class="container text-center mt-5 ">
         <a href="{% url 'Productos:producto_list' %}" class="btn btn-primary">Todos Los Productos</a>
     </div>
 
-    <div class="container text-center mt-5 d-grid">
-        <a href="" class="btn btn-primary">Ver Pedidos</a>
+    <div class="container text-center mt-5 ">
+        <a href="{% url 'vendedor:venta_list' %}" class="btn btn-primary">Ver Pedidos</a>
     </div>
 {% endblock  %}

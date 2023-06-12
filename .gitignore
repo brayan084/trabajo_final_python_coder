@@ -1,5 +1,0 @@
-# Ignora el entorno virtual
-.venv
-
-# Ignora la base de datos
-**/db.sqlite3

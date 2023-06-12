@@ -7,18 +7,13 @@
                 class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                <li class="nav-item "><a class="nav-link {% if request.path == "/" %}active{% endif %} " aria-current="page" href="{% url 'Home:index' %}">Inicio</a>
-                </li>
+                <li class="nav-item "><a class="nav-link {% if request.path == "/" %}active{% endif %} " aria-current="page" href="{% url 'Home:index' %}">Inicio</a></li>
+                <li class="nav-item "><a class="nav-link {% if request.path == "/about/" %}active{% endif %}" href="{% url 'Home:about' %}" target="_blank">About me</a></li>
 
                 {% if request.user.is_authenticated %}
 
-
                     <li><a class="nav-link {% if request.path == "/Productos/" or request.path == "/Productos/list/" or request.path == "/Productos/create/" or request.path == "/Productos/update/4" or request.path == "/Productos/delete/4" or request.path == "/Productos/detail/4" %} active {% endif %}" href="{% url 'Productos:index' %}">Administracion</a></li>
 
-                    <li><a class="nav-link {% if request.path == "/#!" %}active{% endif %}" href="#!">ventas</a></li>
-                {% else %}
-
-                    <li><a class="nav-link {% if request.path == "/" %}active{% endif %}" href="#!">About me</a></li>
                 {% endif %}
 
             </ul>
@@ -37,19 +32,6 @@
                 {% endif %}
             </ul>
 
-
-            <!-- Esto es el carrito de compras -->
-            <!-- <ul class="navbar-nav">
-                <li class="nav-item">
-                    <form class="d-flex">
-                        <button class="btn btn-outline-dark" type="submit">
-                            <i class="bi-cart-fill me-1"></i>
-                            Cart
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                        </button>
-                    </form>
-                </li>
-            </ul> -->
 
 
         </div>
