@@ -1,0 +1,38 @@
+{% extends 'Home/base.html' %}
+
+{% block content %}
+    
+    {% if user.is_staff %}
+
+        <div class="container text-center mt-5 gap-2">
+            <a href="{% url 'vendedor:venta_create' %}" class="btn btn-primary">Añadir Pedido</a>
+        </div>
+
+    {% endif %}
+    <div class="container text-center mt-5 gap-2">
+        {% url 'Productos:index' as url %}
+        {% include 'Home/back.html' with link=url %}
+
+    </div>
+    
+
+    <div class="text-center mt-5">
+        <h2>Lista de Pedidos</h2>
+    </div>
+    <div>
+        {% for pedido in pedidos %}
+        <div class="card text-center mt-5">
+            <ul>
+                <p>El vendedor: {{ pedido.vendedor }}</p>
+                <p><b>Pedido: </b>
+                    <p>Producto: {{ pedido.producto.nombre }}</p>
+                    <p>cantidad: {{ pedido.cantidad }}</p>
+                    <p>precio del pedido $ {{ pedido.precio_total }}</p>
+                </p>
+                
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
+
+{% endblock  %}
